@@ -26,6 +26,15 @@ function syncFaviconToPublic(): {
       }
       fs.mkdirSync(path.dirname(dest), { recursive: true });
       fs.copyFileSync(src, dest);
+
+      // Some browsers prefer `favicon.ico`, and GitHub Pages will serve what we place in `public/`.
+      const srcIco = path.join(__dirname, "Assests", "fav.ico");
+      const destIco = path.join(__dirname, "public", "favicon.ico");
+      if (!fs.existsSync(srcIco)) {
+        console.warn(`[vite] Assests/fav.ico not found; favicon.ico sync skipped.`);
+        return;
+      }
+      fs.copyFileSync(srcIco, destIco);
     },
   };
 }
