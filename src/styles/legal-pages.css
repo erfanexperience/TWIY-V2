@@ -1,0 +1,185 @@
+/* Legal documents — light, readable, printable */
+
+.lp {
+  min-height: 100vh;
+  background: #f6f8fa;
+  color: #0b1118;
+}
+
+.lp__header {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem var(--twi-gutter, 44px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background: #fff;
+  border-bottom: 1px solid rgba(2, 23, 35, 0.08);
+}
+
+.lp__logo {
+  height: 36px;
+  display: block;
+}
+
+.lp__logoWrap {
+  text-decoration: none;
+  color: inherit;
+}
+
+.lp__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.lp__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid rgba(2, 23, 35, 0.14);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.lp__btn--solid {
+  background: #041722;
+  color: #fff;
+  border-color: #041722;
+}
+
+.lp__btn--ghost {
+  background: transparent;
+  color: #041722;
+}
+
+.lp__main {
+  padding: clamp(2rem, 5vw, 3.25rem) 0 clamp(3rem, 8vw, 5rem);
+}
+
+.lp__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 var(--twi-gutter, 44px);
+}
+
+.lp__eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgba(11, 17, 24, 0.55);
+}
+
+.lp__title {
+  margin: 0 0 0.5rem;
+  font-family: "Montserrat", "Roboto", system-ui, sans-serif;
+  font-size: clamp(1.65rem, 3.2vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  color: #021723;
+}
+
+.lp__effective {
+  margin: 0 0 1.75rem;
+  font-size: 0.875rem;
+  color: rgba(11, 17, 24, 0.65);
+}
+
+.lp__prose {
+  background: #fff;
+  border: 1px solid rgba(2, 23, 35, 0.08);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-radius: 2px;
+  box-shadow: 0 12px 40px rgba(4, 23, 34, 0.04);
+}
+
+.lp__prose h2 {
+  margin: 1.75rem 0 0.65rem;
+  font-family: "Montserrat", "Roboto", system-ui, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #021723;
+}
+
+.lp__prose h2:first-child {
+  margin-top: 0;
+}
+
+.lp__prose h3 {
+  margin: 1.25rem 0 0.45rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #041722;
+}
+
+.lp__prose p {
+  margin: 0 0 0.85rem;
+  font-size: 0.9375rem;
+  line-height: 1.72;
+  color: rgba(11, 17, 24, 0.84);
+}
+
+.lp__prose ul {
+  margin: 0 0 0.85rem;
+  padding-left: 1.25rem;
+}
+
+.lp__prose li {
+  margin-bottom: 0.4rem;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: rgba(11, 17, 24, 0.84);
+}
+
+.lp__prose a {
+  color: #0a4d66;
+  font-weight: 600;
+}
+
+.lp__prose a:hover {
+  text-decoration: underline;
+}
+
+.lp__prose strong {
+  font-weight: 700;
+  color: rgba(11, 17, 24, 0.92);
+}
+
+.lp__callout {
+  margin: 1rem 0;
+  padding: 0.9rem 1rem;
+  background: rgba(4, 23, 34, 0.04);
+  border-left: 3px solid #041722;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: rgba(11, 17, 24, 0.82);
+}
+
+.lp__address {
+  margin: 0.5rem 0 0;
+  font-style: normal;
+  font-size: 0.925rem;
+  line-height: 1.65;
+  color: rgba(11, 17, 24, 0.84);
+}
+
+@media (max-width: 767.98px) {
+  .lp__header {
+    flex-direction: column;
+    align-items: flex-start;
+    --twi-gutter: 20px;
+  }
+
+  .lp__inner {
+    --twi-gutter: 20px;
+  }
+}

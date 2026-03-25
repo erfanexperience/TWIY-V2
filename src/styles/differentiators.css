@@ -1,0 +1,198 @@
+/* Why Choose Us / Differentiators — premium, minimal split section */
+
+.df {
+  --df-navy: #021723;
+  --df-slate: #041722;
+  --df-ink: #0b1118;
+  --df-muted: rgba(11, 17, 24, 0.72);
+  --df-gutter: var(--twi-gutter, 44px);
+
+  position: relative;
+  background: #051620;
+  color: #ffffff;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.df__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(3.25rem, 7vw, 6rem) var(--df-gutter);
+}
+
+.df__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: stretch;
+}
+
+.df__mediaWrap {
+  position: relative;
+  overflow: hidden;
+  background: var(--df-slate);
+  min-height: 260px;
+  aspect-ratio: 16 / 10;
+}
+
+.df__mediaWrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 22, 32, 0.18) 0%,
+    rgba(5, 22, 32, 0.35) 48%,
+    rgba(5, 22, 32, 0.62) 100%
+  );
+}
+
+.df__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.df__content {
+  background: transparent;
+  border: none;
+  padding: clamp(1.4rem, 2.5vw, 2.1rem);
+}
+
+.df__eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.df__title {
+  margin: 0 0 0.95rem;
+  font-family: "Montserrat", "Roboto", system-ui, sans-serif;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  line-height: 1.17;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  color: #ffffff;
+  max-width: 26ch;
+}
+
+.df__intro {
+  margin: 0 0 1.4rem;
+  font-size: clamp(0.92rem, 1vw, 1rem);
+  line-height: 1.72;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 58ch;
+}
+
+.df__points {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.df__point {
+  padding: 0.9rem 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.df__point:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.df__pointTitle {
+  margin: 0 0 0.45rem;
+  font-family: "Montserrat", "Roboto", system-ui, sans-serif;
+  font-size: clamp(0.9rem, 1vw, 1.02rem);
+  line-height: 1.35;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.df__pointText {
+  margin: 0;
+  font-size: clamp(0.84rem, 0.92vw, 0.93rem);
+  line-height: 1.68;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .df__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(1.6rem, 2.8vw, 2.4rem);
+  }
+
+  .df__content {
+    order: 1;
+  }
+
+  .df__mediaWrap {
+    order: 2;
+  }
+
+  .df__mediaWrap {
+    min-height: 100%;
+    aspect-ratio: auto;
+  }
+
+  .df__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+/* Desktop refinement */
+@media (min-width: 1100px) {
+  .df__layout {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: clamp(2rem, 3.2vw, 2.8rem);
+  }
+
+  .df__mediaWrap {
+    min-height: 520px;
+  }
+
+  .df__content {
+    padding: clamp(1.7rem, 2.1vw, 2.3rem);
+  }
+}
+
+/* Mobile */
+@media (max-width: 767.98px) {
+  .df {
+    --df-gutter: 20px;
+  }
+
+  .df__layout {
+    justify-items: center;
+  }
+
+  .df__mediaWrap {
+    margin-inline: auto;
+    width: 100%;
+    max-width: min(36rem, 100%);
+    border-radius: 20px;
+  }
+
+  .df__image {
+    border-radius: 0;
+  }
+
+  .df__content {
+    width: 100%;
+    max-width: min(36rem, 100%);
+    margin-inline: auto;
+  }
+}
+

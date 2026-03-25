@@ -1,0 +1,207 @@
+/* Brand Positioning — modern B2B; matches hero (navy #021723, Montserrat, Roboto) */
+
+.bp {
+  --bp-navy: #021723;
+  --bp-ink: #0b1118;
+  --bp-muted: rgba(11, 17, 24, 0.7);
+  --bp-gutter: var(--twi-gutter, 44px);
+
+  position: relative;
+  background: #ffffff;
+  color: var(--bp-ink);
+  border-top: 1px solid rgba(2, 23, 35, 0.06);
+}
+
+/* Subtle top accent — ties to hero teal line language without heavy color */
+.bp::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--bp-navy) 0%, rgba(2, 23, 35, 0.15) 42%, transparent 100%);
+  pointer-events: none;
+}
+
+.bp__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(3.25rem, 7vw, 6rem) var(--bp-gutter);
+}
+
+.bp__grid {
+  display: grid;
+  gap: clamp(2.25rem, 5vw, 4rem);
+  align-items: center;
+  grid-template-columns: 1fr;
+}
+
+.bp__media {
+  position: relative;
+  overflow: hidden;
+  background: var(--bp-navy);
+  min-height: 220px;
+  aspect-ratio: 4 / 5;
+  max-height: min(70vh, 680px);
+  box-shadow:
+    0 4px 6px -1px rgba(2, 23, 35, 0.06),
+    0 24px 40px -12px rgba(2, 23, 35, 0.12);
+}
+
+.bp__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 40%, rgba(2, 23, 35, 0.12) 100%);
+}
+
+.bp__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.bp__content {
+  max-width: 36rem;
+  border-left: 3px solid var(--bp-navy);
+  padding-inline-start: clamp(1rem, 3vw, 1.75rem);
+}
+
+.bp__eyebrow {
+  margin: 0 0 0.875rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--bp-navy);
+}
+
+.bp__title {
+  margin: 0 0 1.625rem;
+  font-family: "Montserrat", "Roboto", system-ui, sans-serif;
+  font-size: clamp(1.5rem, 2.75vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--bp-ink);
+  max-width: 22ch;
+}
+
+.bp__prose {
+  font-size: clamp(0.9375rem, 1.05vw, 1.0625rem);
+  line-height: 1.78;
+  font-weight: 400;
+  color: var(--bp-muted);
+}
+
+.bp__prose p {
+  margin: 0 0 1.125rem;
+}
+
+.bp__prose p:last-child {
+  margin-bottom: 0;
+}
+
+.bp__lead {
+  font-size: clamp(1.02rem, 1.12vw, 1.125rem);
+  font-weight: 500;
+  color: var(--bp-ink);
+  line-height: 1.65;
+}
+
+.bp__closing {
+  font-weight: 500;
+  color: rgba(11, 17, 24, 0.88);
+  margin-top: 0.5rem !important;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(2, 23, 35, 0.1);
+}
+
+/* Tablet & up */
+@media (min-width: 768px) {
+  .bp__grid {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: clamp(2.5rem, 4.5vw, 3.75rem);
+    align-items: stretch;
+  }
+
+  .bp__media {
+    max-height: none;
+    min-height: 380px;
+    aspect-ratio: 3 / 4;
+  }
+
+  .bp__content {
+    max-width: none;
+    align-self: center;
+  }
+
+  .bp__title {
+    max-width: 26ch;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bp__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.02fr);
+    gap: clamp(3rem, 5vw, 4.5rem);
+  }
+
+  .bp__title {
+    margin-bottom: 1.875rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767.98px) {
+  .bp {
+    --bp-gutter: 20px;
+    /* Flush with hero — no top rule / gradient divider */
+    border-top: none;
+  }
+
+  .bp::before {
+    display: none;
+  }
+
+  .bp__inner {
+    padding-top: clamp(2.75rem, 9vw, 3.75rem);
+    padding-bottom: clamp(2.75rem, 9vw, 3.75rem);
+  }
+
+  /* Text first (DOM order is media→content; raise media’s order so copy stacks above) */
+  .bp__content {
+    order: 0;
+    max-width: 100%;
+    border-left: none;
+    border-top: none;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: clamp(1.75rem, 6vw, 2.5rem);
+    padding-inline-start: 0;
+    border-bottom: 1px solid rgba(2, 23, 35, 0.1);
+  }
+
+  .bp__media {
+    order: 1;
+    max-height: 380px;
+    aspect-ratio: 16 / 10;
+    min-height: 200px;
+    border-radius: 20px;
+    box-shadow:
+      0 2px 4px rgba(2, 23, 35, 0.06),
+      0 16px 32px -8px rgba(2, 23, 35, 0.1);
+  }
+
+  .bp__img {
+    border-radius: 0;
+  }
+
+  .bp__title {
+    max-width: none;
+  }
+}

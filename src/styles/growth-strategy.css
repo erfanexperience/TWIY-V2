@@ -1,0 +1,216 @@
+/* Growth Strategy / Coverage — modern editorial, responsive */
+
+.gs {
+  --gs-navy: #021723;
+  --gs-slate: #041722;
+  --gs-ink: #0b1118;
+  --gs-muted: rgba(11, 17, 24, 0.7);
+  --gs-gutter: var(--twi-gutter, 44px);
+
+  position: relative;
+  background: #ffffff;
+  color: var(--gs-ink);
+  border-top: 1px solid rgba(2, 23, 35, 0.06);
+}
+
+.gs__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(3.25rem, 7vw, 6rem) var(--gs-gutter);
+}
+
+.gs__header {
+  max-width: 50rem;
+  margin-bottom: clamp(2.25rem, 4vw, 3.5rem);
+}
+
+.gs__eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gs-navy);
+}
+
+.gs__title {
+  margin: 0 0 1rem;
+  font-family: "Montserrat", "Roboto", system-ui, sans-serif;
+  font-size: clamp(1.45rem, 2.35vw, 2.125rem);
+  line-height: 1.18;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--gs-ink);
+}
+
+.gs__lede {
+  margin: 0;
+  max-width: 44rem;
+  font-size: clamp(0.9375rem, 1.05vw, 1.0625rem);
+  line-height: 1.75;
+  color: rgba(11, 17, 24, 0.68);
+}
+
+.gs__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1rem, 2.2vw, 1.5rem);
+}
+
+.gs__block {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #ffffff;
+  border: 1px solid rgba(2, 23, 35, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gs__media {
+  position: relative;
+  min-height: 220px;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--gs-slate);
+}
+
+.gs__img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.45s ease;
+}
+
+.gs__body {
+  padding: clamp(1.2rem, 2.1vw, 1.8rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.gs__blockTitle {
+  margin: 0;
+  font-family: "Montserrat", "Roboto", system-ui, sans-serif;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  line-height: 1.3;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--gs-ink);
+}
+
+.gs__blockText {
+  margin: 0;
+  font-size: clamp(0.86rem, 0.95vw, 0.96rem);
+  line-height: 1.7;
+  color: var(--gs-muted);
+}
+
+.gs__chip {
+  margin: 0.125rem 0 0;
+  align-self: flex-start;
+  padding: 0.42rem 0.68rem;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: var(--gs-slate);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .gs__block:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 38px -16px rgba(2, 23, 35, 0.25);
+  }
+
+  .gs__block:hover .gs__img {
+    transform: scale(1.035);
+  }
+}
+
+/* Tablet editorial stagger */
+@media (min-width: 768px) {
+  .gs__layout {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 1.2rem;
+  }
+
+  .gs__block--territory {
+    grid-column: 1 / span 7;
+  }
+
+  .gs__block--ops {
+    grid-column: 8 / span 5;
+  }
+
+  .gs__block--partner {
+    grid-column: 3 / span 10;
+  }
+
+  .gs__block--ops .gs__media {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* Desktop refinement */
+@media (min-width: 1100px) {
+  .gs__layout {
+    gap: 1.4rem;
+  }
+
+  .gs__block--territory {
+    grid-column: 1 / span 6;
+  }
+
+  .gs__block--ops {
+    grid-column: 7 / span 6;
+  }
+
+  .gs__block--partner {
+    grid-column: 1 / span 12;
+  }
+
+  .gs__block {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    min-height: 320px;
+  }
+
+  .gs__block--ops {
+    grid-template-columns: 1fr;
+  }
+
+  .gs__block--ops .gs__media {
+    min-height: 240px;
+    aspect-ratio: 16 / 9;
+  }
+
+  .gs__block--territory .gs__media,
+  .gs__block--partner .gs__media {
+    min-height: 100%;
+    aspect-ratio: auto;
+  }
+
+  .gs__block--territory .gs__body,
+  .gs__block--partner .gs__body {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .gs {
+    --gs-gutter: 20px;
+  }
+
+  .gs__block {
+    border-radius: 20px;
+  }
+
+  .gs__media,
+  .gs__img {
+    border-radius: 0;
+  }
+}
+

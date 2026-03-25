@@ -1,0 +1,348 @@
+/* Core Services — premium grid; desktop: full-bleed #041722 + alternating cards */
+
+.cs {
+  --cs-navy: #021723;
+  --cs-slate: #041722;
+  --cs-ink: #0b1118;
+  --cs-muted-light: rgba(255, 255, 255, 0.74);
+  --cs-gutter: var(--twi-gutter, 44px);
+
+  background: #ffffff;
+  color: var(--cs-ink);
+  border-top: 1px solid rgba(2, 23, 35, 0.06);
+}
+
+.cs__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(3.25rem, 7vw, 6rem) var(--cs-gutter);
+}
+
+.cs__header {
+  max-width: 46rem;
+  margin-bottom: clamp(2.5rem, 5vw, 3.75rem);
+}
+
+.cs__eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cs-navy);
+}
+
+.cs__title {
+  margin: 0 0 1rem;
+  font-family: "Montserrat", "Roboto", system-ui, sans-serif;
+  font-size: clamp(1.5rem, 2.5vw, 2.125rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: var(--cs-ink);
+}
+
+.cs__lede {
+  margin: 0;
+  font-size: clamp(0.9375rem, 1.1vw, 1.0625rem);
+  line-height: 1.75;
+  font-weight: 400;
+  color: rgba(11, 17, 24, 0.68);
+  max-width: 42rem;
+}
+
+.cs__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.cs__item {
+  margin: 0;
+  min-width: 0;
+}
+
+.cs__card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--cs-navy);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cs__card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 4px 6px -1px rgba(2, 23, 35, 0.08),
+      0 24px 48px -12px rgba(2, 23, 35, 0.28);
+  }
+
+  .cs__card:hover .cs__img {
+    transform: scale(1.04);
+  }
+
+  .cs__card:hover .cs__mediaTint {
+    opacity: 0.85;
+  }
+}
+
+.cs__media {
+  position: relative;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  background: #0a1620;
+  flex-shrink: 0;
+}
+
+.cs__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cs__mediaTint {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 0%, rgba(2, 23, 35, 0.15) 55%, rgba(2, 23, 35, 0.45) 100%);
+  opacity: 1;
+  transition: opacity 0.35s ease;
+}
+
+.cs__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  gap: 0.625rem;
+}
+
+.cs__cardTitle {
+  margin: 0;
+  font-family: "Montserrat", "Roboto", system-ui, sans-serif;
+  font-size: clamp(0.9375rem, 1.1vw, 1.0625rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.3;
+  color: #ffffff;
+}
+
+.cs__cardText {
+  margin: 0;
+  font-size: clamp(0.8125rem, 0.95vw, 0.9375rem);
+  line-height: 1.65;
+  font-weight: 400;
+  color: var(--cs-muted-light);
+  flex: 1;
+}
+
+/* Tablet: 2 columns — keep classic navy cards */
+@media (min-width: 640px) {
+  .cs__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Desktop: full-bleed slate band, larger alternating cards */
+@media (min-width: 1100px) {
+  .cs {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    background: var(--cs-slate);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+  }
+
+  .cs__inner {
+    max-width: 1440px;
+    padding-top: clamp(4rem, 6vw, 5.5rem);
+    padding-bottom: clamp(4rem, 6vw, 5.5rem);
+  }
+
+  .cs__header {
+    max-width: 52rem;
+    margin-bottom: clamp(3rem, 4.5vw, 3.75rem);
+  }
+
+  .cs__eyebrow {
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  .cs__title {
+    color: #ffffff;
+    font-size: clamp(1.75rem, 2.35vw, 2.375rem);
+  }
+
+  .cs__lede {
+    color: rgba(255, 255, 255, 0.72);
+    max-width: 48rem;
+  }
+
+  .cs__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(1.5rem, 2vw, 2rem);
+    align-items: stretch;
+  }
+
+  .cs__media {
+    aspect-ratio: 5 / 4;
+    min-height: 200px;
+  }
+
+  .cs__body {
+    padding: clamp(1.5rem, 2.2vw, 2rem);
+    gap: 0.75rem;
+  }
+
+  .cs__cardTitle {
+    font-size: clamp(0.8125rem, 0.95vw, 0.9375rem);
+    letter-spacing: 0.06em;
+  }
+
+  .cs__cardText {
+    font-size: clamp(0.8125rem, 0.9vw, 0.9375rem);
+    line-height: 1.68;
+  }
+
+  /* Dark cards (#041722) — readable on slate via hairline + depth */
+  .cs__item:nth-child(odd) .cs__card {
+    background: var(--cs-slate);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.06),
+      0 24px 56px rgba(0, 0, 0, 0.35);
+  }
+
+  .cs__item:nth-child(odd) .cs__cardTitle {
+    color: #ffffff;
+  }
+
+  .cs__item:nth-child(odd) .cs__cardText {
+    color: rgba(255, 255, 255, 0.76);
+  }
+
+  .cs__item:nth-child(odd) .cs__mediaTint {
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(4, 23, 34, 0.2) 50%,
+      rgba(4, 23, 34, 0.55) 100%
+    );
+  }
+
+  /* Light cards — crisp on slate */
+  .cs__item:nth-child(even) .cs__card {
+    background: #ffffff;
+    border: 1px solid rgba(4, 23, 34, 0.12);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.5),
+      0 28px 60px rgba(0, 0, 0, 0.28);
+  }
+
+  .cs__item:nth-child(even) .cs__cardTitle {
+    color: var(--cs-navy);
+  }
+
+  .cs__item:nth-child(even) .cs__cardText {
+    color: rgba(11, 17, 24, 0.68);
+  }
+
+  .cs__item:nth-child(even) .cs__mediaTint {
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(2, 23, 35, 0.08) 55%,
+      rgba(2, 23, 35, 0.22) 100%
+    );
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .cs__item:nth-child(odd) .cs__card:hover {
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.12),
+        0 32px 64px rgba(0, 0, 0, 0.45);
+    }
+
+    .cs__item:nth-child(even) .cs__card:hover {
+      box-shadow:
+        0 0 0 1px rgba(4, 23, 34, 0.14),
+        0 32px 64px rgba(0, 0, 0, 0.22);
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .cs__inner {
+    max-width: 1520px;
+  }
+
+  .cs__grid {
+    gap: clamp(1.75rem, 2.2vw, 2.25rem);
+  }
+
+  .cs__media {
+    min-height: 220px;
+  }
+}
+
+/* Mobile + narrow tablet: match Brand Positioning image corners (TR + BL) */
+@media (max-width: 767.98px) {
+  .cs__card {
+    border-radius: 20px;
+  }
+
+  .cs__media,
+  .cs__img {
+    border-radius: 0;
+  }
+}
+
+/* Mobile */
+@media (max-width: 639.98px) {
+  .cs {
+    --cs-gutter: 20px;
+  }
+
+  .cs__inner {
+    padding-top: clamp(2.75rem, 9vw, 3.5rem);
+    padding-bottom: clamp(2.75rem, 9vw, 3.5rem);
+  }
+
+  .cs__header {
+    margin-bottom: 2rem;
+  }
+
+  .cs__media {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs__card,
+  .cs__img,
+  .cs__mediaTint {
+    transition: none !important;
+  }
+
+  .cs__card:hover {
+    transform: none !important;
+  }
+
+  .cs__card:hover .cs__img {
+    transform: none !important;
+  }
+}

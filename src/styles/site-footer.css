@@ -1,0 +1,138 @@
+.sf {
+  --sf-bg: #020f18;
+  --sf-ink: rgba(255, 255, 255, 0.88);
+  --sf-muted: rgba(255, 255, 255, 0.68);
+  --sf-line: rgba(255, 255, 255, 0.14);
+  --sf-gutter: var(--twi-gutter, 44px);
+
+  background: var(--sf-bg);
+  color: var(--sf-ink);
+  border-top: 1px solid var(--sf-line);
+}
+
+.sf__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(2.4rem, 6vw, 3.6rem) var(--sf-gutter) 1.2rem;
+}
+
+.sf__srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.sf__top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.8rem;
+  padding-bottom: 1.8rem;
+  border-bottom: 1px solid var(--sf-line);
+}
+
+.sf__brand {
+  max-width: 20rem;
+}
+
+.sf__logoLink {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.sf__logo {
+  height: 34px;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+.sf__tagline {
+  margin: 0.8rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--sf-muted);
+}
+
+.sf__heading {
+  margin: 0 0 0.72rem;
+  font-family: "Montserrat", "Roboto", system-ui, sans-serif;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.sf__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.sf__link,
+.sf__plainText {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--sf-muted);
+}
+
+.sf__link {
+  transition: color 0.2s ease;
+}
+
+.sf__link:hover {
+  color: #ffffff;
+}
+
+.sf__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+
+.sf__copyright {
+  margin: 0;
+  font-size: 0.81rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.sf__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .sf__top {
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .sf__bottom {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .sf {
+    --sf-gutter: 20px;
+  }
+
+  .sf__logo {
+    height: 31px;
+  }
+}
+

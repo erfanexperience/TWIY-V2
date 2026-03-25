@@ -1,0 +1,494 @@
+:root {
+  --ink: #0b1118;
+  --box: #021723;
+  --center-tint: #041722;
+  /* Match header + intro horizontal edges (logo left / CTA right) */
+  --twi-gutter: 44px;
+}
+
+/**
+ * One vertical scroll root only. If both html and body use overflow-x: hidden, CSS pairs that with
+ * overflow-y: auto on each, which produces two stacked scrollbars in Chromium / Edge / Firefox.
+ * Keep horizontal clipping on html; leave body overflow visible so the document uses a single gutter.
+ */
+html {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  overflow-x: visible;
+  overflow-y: visible;
+  background: #ffffff;
+  color: #0b1118;
+  font-family: "Roboto", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  border: 0;
+  outline: none;
+}
+
+/* ——— Hero shell: full viewport height ——— */
+.twi-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ——— Header ——— */
+.twi-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  padding: 18px var(--twi-gutter);
+  background: #ffffff;
+  gap: 16px;
+}
+
+.twi-logo {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+
+.twi-nav--desktop {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.twi-nav__link {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0b1118;
+}
+
+.twi-header__right--desktop {
+  display: flex;
+  align-items: center;
+}
+
+.twi-menuToggle {
+  display: none;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.twi-menuToggle__icon {
+  position: relative;
+  width: 22px;
+  height: 2px;
+  background: #0b1118;
+  border-radius: 1px;
+  transition: background 0.2s ease;
+}
+
+.twi-menuToggle__icon::before,
+.twi-menuToggle__icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 22px;
+  height: 2px;
+  background: #0b1118;
+  border-radius: 1px;
+  transition: transform 0.2s ease, top 0.2s ease;
+}
+
+.twi-menuToggle__icon::before {
+  top: -7px;
+}
+
+.twi-menuToggle__icon::after {
+  top: 7px;
+}
+
+.twi-menuToggle__icon--open {
+  background: transparent;
+}
+
+.twi-menuToggle__icon--open::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.twi-menuToggle__icon--open::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+.twi-mobileNav {
+  display: none;
+  flex-shrink: 0;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.28s ease, visibility 0.28s ease;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(11, 17, 24, 0.08);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.twi-mobileNav--open {
+  max-height: 320px;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.twi-mobileNav__inner {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 24px 20px;
+  gap: 4px;
+}
+
+.twi-mobileNav__link {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0b1118;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(11, 17, 24, 0.06);
+}
+
+.twi-mobileNav__cta {
+  margin-top: 12px;
+  align-self: flex-start;
+}
+
+.twi-button {
+  font-family: inherit;
+  border-radius: 0;
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 12px 26px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: transform 0.08s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.twi-button:active {
+  transform: translateY(1px);
+}
+
+.twi-button--solid {
+  background: var(--box);
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.twi-button--outline {
+  background: #ffffff;
+  color: #0b1118;
+  border-color: #ffffff;
+}
+
+/* ——— Intro (title + right copy) ——— */
+.twi-intro {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  /* Taller white band; same horizontal inset as header for alignment */
+  padding: 44px var(--twi-gutter) 52px;
+  display: grid;
+  grid-template-columns: 1fr minmax(260px, 420px);
+  gap: 32px;
+  align-items: start;
+}
+
+.twi-heading {
+  margin: 0;
+  font-family: "Montserrat", "Roboto", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  font-weight: 900;
+  font-size: clamp(32px, 4.2vw, 58px);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: #0b1118;
+}
+
+.twi-intro__right {
+  padding-top: 12px;
+  justify-self: end;
+  text-align: right;
+  max-width: 420px;
+}
+
+.twi-kicker {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0b1118;
+  margin-bottom: 12px;
+}
+
+.twi-paragraph {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(11, 17, 24, 0.72);
+  font-weight: 500;
+}
+
+/* ——— Three columns: full width, grows to fill 100vh hero ——— */
+.twi-three {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+}
+
+.twi-card {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.twi-card--left {
+  background: var(--box);
+  padding: 30px 28px 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.twi-card--right {
+  background: var(--box);
+  padding: 30px 28px 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.twi-card--center {
+  background: var(--box);
+}
+
+.twi-card__text {
+  padding-right: 10px;
+}
+
+.twi-card__title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.twi-card__subtext {
+  margin: 16px 0 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 500;
+  max-width: 340px;
+}
+
+.twi-card__media {
+  width: 100%;
+}
+
+.twi-card__media--contain {
+  margin-top: auto;
+  align-self: center;
+  width: 92%;
+  height: auto;
+  object-fit: contain;
+  object-position: bottom center;
+  padding-bottom: 8px;
+}
+
+/* Left column only: slightly smaller graphic, nudged lower */
+.twi-card--left .twi-card__media--contain {
+  width: 78%;
+  margin-top: 22px;
+  transform: translateY(32px);
+  padding-bottom: 18px;
+}
+
+.twi-card__media--cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Light tint over center photo (#041722 at low opacity) */
+/* #041722 — strong at bottom for copy; fades to clear at top so the photo reads */
+.twi-centerTint {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(4, 23, 34, 0) 0%,
+    rgba(4, 23, 34, 0) 38%,
+    rgba(4, 23, 34, 0.45) 62%,
+    rgba(4, 23, 34, 0.78) 85%,
+    rgba(4, 23, 34, 0.88) 100%
+  );
+}
+
+.twi-centerOverlay {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  z-index: 2;
+  text-align: left;
+}
+
+.twi-centerOverlay__title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  line-height: 1.25;
+  text-align: left;
+}
+
+.twi-centerOverlay__body {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 340px;
+  text-align: left;
+}
+
+/* ——— Tablet: stack intro ——— */
+@media (max-width: 1024px) {
+  .twi-intro {
+    grid-template-columns: 1fr;
+    padding: 36px var(--twi-gutter) 40px;
+  }
+
+  .twi-intro__right {
+    max-width: none;
+    justify-self: start;
+    text-align: left;
+  }
+}
+
+/* ——— Mobile ——— */
+@media (max-width: 768px) {
+  :root {
+    --twi-gutter: 20px;
+  }
+
+  .twi-nav--desktop {
+    display: none;
+  }
+
+  .twi-header__right--desktop {
+    display: none;
+  }
+
+  .twi-menuToggle {
+    display: flex;
+  }
+
+  .twi-mobileNav {
+    display: block;
+  }
+
+  .twi-mobileNav:not(.twi-mobileNav--open) {
+    border-bottom-color: transparent;
+  }
+
+  .twi-mobileNav--open {
+    border-bottom-color: rgba(11, 17, 24, 0.08);
+  }
+
+  .twi-header {
+    padding: 14px var(--twi-gutter);
+  }
+
+  .twi-intro {
+    padding: 24px var(--twi-gutter) 20px;
+  }
+
+  .twi-heading {
+    font-size: clamp(26px, 7vw, 36px);
+  }
+
+  /* Compact hero: don’t stretch to 100vh — only the media block is slightly shorter */
+  .twi-hero {
+    min-height: auto;
+  }
+
+  .twi-three {
+    flex: 0 0 auto;
+    min-height: 0;
+    grid-template-columns: 1fr;
+    /* Align hero image with intro/header — same side rhythm as --twi-gutter */
+    padding-inline: var(--twi-gutter);
+    box-sizing: border-box;
+  }
+
+  .twi-card--left,
+  .twi-card--right {
+    display: none;
+  }
+
+  .twi-card--center {
+    min-height: min(48vh, 352px);
+    height: min(48vh, 352px);
+    max-height: min(48vh, 352px);
+    border: 0;
+    border-radius: 20px;
+  }
+
+  .twi-card--center .twi-card__media--cover {
+    object-position: center 28%;
+  }
+
+  /* Mobile: only intro copy + full-bleed center image (no duplicate overlay) */
+  .twi-centerOverlay,
+  .twi-centerTint {
+    display: none;
+  }
+
+  .twi-button {
+    padding: 10px 18px;
+  }
+}

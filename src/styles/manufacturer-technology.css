@@ -1,0 +1,221 @@
+/* Manufacturer / Technology — viewport autoplay video section */
+
+.mt {
+  --mt-ink: #0b1118;
+  --mt-navy: #021723;
+  --mt-slate: #041722;
+  --mt-gutter: var(--twi-gutter, 44px);
+
+  position: relative;
+  background: #ffffff;
+  color: var(--mt-ink);
+  border-top: 1px solid rgba(2, 23, 35, 0.06);
+}
+
+.mt__track {
+  position: relative;
+  height: auto;
+  min-height: 0;
+}
+
+.mt__sticky {
+  position: relative;
+  height: auto;
+  min-height: 100vh;
+  max-height: none;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: clamp(1.5rem, 3vh, 2.5rem) 0;
+  background: #ffffff;
+}
+
+.mt__inner {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--mt-gutter);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+  min-height: 0;
+}
+
+/* Grid items default to min-width: auto and won’t shrink; that often causes 1px overflow / hairlines next to video */
+.mt__inner > * {
+  min-width: 0;
+}
+
+.mt__copy {
+  max-width: 34rem;
+  padding-right: clamp(0.5rem, 2vw, 1.5rem);
+}
+
+.mt__eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mt-navy);
+}
+
+.mt__title {
+  margin: 0 0 1.125rem;
+  font-family: "Montserrat", "Roboto", system-ui, sans-serif;
+  font-size: clamp(1.5rem, 2.4vw, 2.125rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--mt-ink);
+}
+
+.mt__lead {
+  margin: 0 0 1rem;
+  font-size: clamp(0.9375rem, 1.05vw, 1.0625rem);
+  line-height: 1.72;
+  font-weight: 500;
+  color: rgba(11, 17, 24, 0.88);
+}
+
+.mt__body {
+  margin: 0 0 1.25rem;
+  font-size: clamp(0.875rem, 1vw, 1rem);
+  line-height: 1.75;
+  color: rgba(11, 17, 24, 0.68);
+}
+
+.mt__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.mt__list li {
+  position: relative;
+  padding-left: 1.125rem;
+  font-size: clamp(0.8125rem, 0.95vw, 0.9375rem);
+  line-height: 1.55;
+  color: rgba(11, 17, 24, 0.72);
+  font-weight: 500;
+}
+
+.mt__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  background: var(--mt-slate);
+  border-radius: 1px;
+}
+
+.mt__videoWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  font-size: 0;
+  background: #fff;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Block + tight line-height avoids a stray flex “line box” gap under the video. */
+.mt__videoShell {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  display: block;
+  line-height: 0;
+  font-size: 0;
+  background: #fff;
+  contain: paint;
+  border-radius: 20px;
+}
+
+.mt__video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: min(86vh, 820px);
+  margin: 0;
+  padding: 0;
+  object-fit: contain;
+  object-position: center;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  pointer-events: none;
+  border-radius: 0;
+  /* Scale + translate trim compositor hairlines; bottom inset clips the last row of pixels where the line persists */
+  transform: translate3d(0, -2px, 0) scale(1.02);
+  transform-origin: center center;
+  -webkit-clip-path: inset(0 0 4px 0);
+  clip-path: inset(0 0 4px 0);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.mt__video:focus {
+  outline: none;
+}
+
+.mt__video::-webkit-media-controls {
+  display: none !important;
+}
+
+@media (max-width: 767.98px) {
+  .mt__track {
+    height: auto;
+    min-height: 0;
+  }
+
+  .mt__sticky {
+    position: relative;
+    top: auto;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    padding: clamp(2.5rem, 8vw, 3.75rem) 0;
+  }
+
+  .mt__inner {
+    grid-template-columns: 1fr;
+    gap: clamp(1.75rem, 5vw, 2.5rem);
+  }
+
+  .mt__copy {
+    max-width: none;
+    padding-right: 0;
+    order: 1;
+  }
+
+  .mt__videoWrap {
+    order: 2;
+    min-height: 200px;
+  }
+
+  .mt__video {
+    max-height: min(55vh, 520px);
+    pointer-events: auto;
+  }
+
+  .mt {
+    --mt-gutter: 20px;
+  }
+}
