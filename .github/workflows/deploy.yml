@@ -38,6 +38,9 @@ jobs:
           VITE_PUBLIC_SITE_URL: https://twiyhealth.com
         run: npm run build
 
+      - name: SPA fallback for client routes
+        run: cp dist/index.html dist/404.html
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
