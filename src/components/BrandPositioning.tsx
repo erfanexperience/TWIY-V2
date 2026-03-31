@@ -21,7 +21,7 @@ export default function BrandPositioning() {
           <div className="bp__content">
             <p className="bp__eyebrow">Driving Surgical Growth Across the Southeast</p>
             <h2 id="bp-heading" className="bp__title">
-              Foot &amp; Ankle Surgical Distribution — Built for the Southeast
+              Surgical Distribution — Built for the Southeast
             </h2>
 
             <div className="bp__prose">

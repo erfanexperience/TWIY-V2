@@ -87,7 +87,7 @@ export default function Hero() {
         <h1 className="twi-heading">
           THE REGIONAL LEADER IN
           <br />
-          FOOT &amp; ANKLE SURGICAL
+          SURGICAL
           <br />
           DISTRIBUTION
         </h1>
