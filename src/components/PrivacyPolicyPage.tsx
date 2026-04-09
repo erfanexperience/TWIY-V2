@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
 import LegalDocumentLayout from "./LegalDocumentLayout";
 import MailingAddressBlock from "./MailingAddressBlock";
-import { publicBusinessInfo } from "../config/publicBusinessInfo";
+import { publicBusinessInfo, publicSiteUrl } from "../config/publicBusinessInfo";
 
 export default function PrivacyPolicyPage() {
   const { email, phoneDisplay, phoneE164, messagingNumberDisplay, messagingNumberE164 } = publicBusinessInfo;
+  const site = publicSiteUrl();
+  const privacyUrl = `${site}/privacy-policy`;
+  const termsUrl = `${site}/terms-and-conditions`;
 
   return (
-    <LegalDocumentLayout title="Privacy Policy" effectiveLabel="Effective date: March 24, 2026 · Last updated: March 24, 2026">
+    <LegalDocumentLayout title="Privacy Policy" effectiveLabel="Effective date: April 8, 2026 · Last updated: April 8, 2026">
       <p>
         This Privacy Policy explains how <strong>{publicBusinessInfo.legalName}</strong> (“TWIY,” “we,” “us,” or
         “our”) collects, uses, discloses, and safeguards information when you interact with our company — including
@@ -17,11 +20,20 @@ export default function PrivacyPolicyPage() {
       </p>
 
       <div className="lp__callout">
-        <strong>SMS program (A2P 10DLC / toll-free or local number):</strong> If you text or call our published intake
-        line at{" "}
-        <a href={`sms:${messagingNumberE164}`}>{messagingNumberDisplay}</a> or{" "}
-        <a href={`tel:${messagingNumberE164}`}>{messagingNumberDisplay}</a>, additional SMS-specific disclosures in this
-        Policy also apply. We send SMS only as described below — not for general marketing blasts.
+        <strong>Public verification (A2P 10DLC):</strong> This Policy is published at{" "}
+        <a href={privacyUrl}>{privacyUrl}</a>. Our Terms of Service (including SMS terms) are at{" "}
+        <a href={termsUrl}>{termsUrl}</a>. Carrier and Twilio reviewers may use these URLs to verify our call to action,
+        consent methods, and required disclosures.
+      </div>
+
+      <div className="lp__callout">
+        <strong>SMS program (A2P 10DLC — brand and program identification):</strong>{" "}
+        <strong>{publicBusinessInfo.legalName}</strong> operates a <strong>business intake and coordination</strong>{" "}
+        messaging program. Messages are sent only in connection with inquiries or coordination you start with us. The
+        published number for calls and texts is{" "}
+        <a href={`sms:${messagingNumberE164}`}>{messagingNumberDisplay}</a> /{" "}
+        <a href={`tel:${messagingNumberE164}`}>{messagingNumberDisplay}</a> (this number must match your registered
+        campaign). We do not use this program for unrelated promotional or blast marketing.
       </div>
 
       <h2>1. Information we collect</h2>
@@ -62,35 +74,100 @@ export default function PrivacyPolicyPage() {
         request you started with us (for example, confirmations, scheduling clarifications, or status updates).
       </p>
 
-      <h2>3. SMS: how you opt in and what to expect</h2>
+      <h2>3. SMS program: message flow, consent, and your choices</h2>
       <p>
-        <strong>Consent / opt-in:</strong> You are not enrolled in an SMS “list” by browsing this site alone. You
-        provide consent to receive SMS from TWIY when you <strong>affirmatively initiate contact</strong> with the
-        published number on this website — for example by calling{" "}
-        <a href={`tel:${messagingNumberE164}`}>{messagingNumberDisplay}</a> or sending a text (including keywords such as
-        “START” or any introductory message) to{" "}
-        <a href={`sms:${messagingNumberE164}`}>{messagingNumberDisplay}</a>. Consent is not a condition of purchasing
-        goods or services where applicable law treats those differently; our messages concern your inquiry with us.
+        This section is written so carriers, Twilio, and other reviewers can verify our{" "}
+        <strong>call to action</strong>, <strong>how users opt in</strong>, and <strong>required disclosures</strong>{" "}
+        for A2P 10DLC registration. You may copy language from this section into your “Message Flow / Call to Action”
+        field if it accurately reflects your live process.
+      </p>
+
+      <h3>3.1 Brand identification</h3>
+      <p>
+        <strong>Brand / legal name:</strong> {publicBusinessInfo.legalName}. <strong>Program purpose:</strong>{" "}
+        Transactional and relationship SMS tied to business intake, consultation coordination, and follow-up you request
+        with us — not mass marketing.
+      </p>
+
+      <h3>3.2 Public call to action — how you opt in (all methods we use)</h3>
+      <p>
+        You are <strong>not</strong> enrolled in SMS by browsing this website alone. Consent is collected only through
+        affirmative, user-initiated contact with our published number or channel, as follows:
+      </p>
+      <ul>
+        <li>
+          <strong>Text-in (mobile originated):</strong> You send a text message from your mobile phone to{" "}
+          <a href={`sms:${messagingNumberE164}`}>{messagingNumberDisplay}</a>. That includes any natural first message
+          (for example introducing yourself or your request) or a keyword such as <strong>START</strong> if you choose to
+          use one. Sending that message means you are asking {publicBusinessInfo.legalName} to reply by SMS about your
+          inquiry.
+        </li>
+        <li>
+          <strong>Call-in:</strong> You call <a href={`tel:${messagingNumberE164}`}>{messagingNumberDisplay}</a>. If,
+          during the call, you agree to receive SMS (for example to confirm details, schedule, or continue the
+          conversation by text), that agreement is your consent for SMS for that coordination thread.
+        </li>
+        <li>
+          <strong>Website context:</strong> The same number appears on our public website (for example footer and
+          contact-related areas). Before you text or call, you can read this Privacy Policy at{" "}
+          <a href={privacyUrl}>{privacyUrl}</a> and our Terms at <a href={termsUrl}>{termsUrl}</a>.
+        </li>
+      </ul>
+      <p>
+        <strong>Consent is not a condition of purchase</strong> of any good or service where applicable law draws that
+        distinction. If we add another opt-in method (for example a checked box on a web form that explicitly consents
+        to SMS and lists the program), we will update this Policy and our Terms so all methods remain publicly
+        documented.
+      </p>
+
+      <h3>3.3 What we send and message frequency</h3>
+      <p>
+        <strong>Message types:</strong> SMS may include intake acknowledgments, confirmations, clarifications,
+        scheduling or logistics coordination, status updates, and other operational content directly related to a request
+        or conversation <strong>you</strong> started with us.
       </p>
       <p>
-        <strong>Message types:</strong> SMS may include case-intake coordination, confirmations, clarifications,
-        scheduling, or similar operational content related to the request you initiated.
+        <strong>Frequency:</strong> This is a <strong>conversational / transactional</strong> program, not a recurring
+        subscription marketing campaign. <strong>Message frequency varies</strong> based on your needs and the status of
+        your request; there is no fixed daily or weekly schedule.
       </p>
+
+      <h3>3.4 Required disclosures: rates, opt-out, help, and policies</h3>
+      <ul>
+        <li>
+          <strong>Message and data rates may apply.</strong> Check your carrier plan.
+        </li>
+        <li>
+          <strong>Opt-out:</strong> Reply <strong>STOP</strong> at any time to cancel SMS from this number/program. We
+          will honor opt-out requests as required by applicable rules (subject to narrow exceptions such as legally
+          required or security-related messages, if any).
+        </li>
+        <li>
+          <strong>Help:</strong> Reply <strong>HELP</strong> for assistance, or contact us using the “Contact us”
+          section below.
+        </li>
+        <li>
+          <strong>Privacy Policy:</strong> <a href={privacyUrl}>{privacyUrl}</a>
+        </li>
+        <li>
+          <strong>Terms &amp; Conditions (Terms of Service):</strong> <a href={termsUrl}>{termsUrl}</a>
+        </li>
+      </ul>
+
+      <h3>3.5 Example first reply (for alignment with message samples)</h3>
       <p>
-        <strong>Frequency:</strong> Message frequency varies based on your interaction with us and what is needed to
-        progress your request.
+        To keep our registration and live messaging aligned, an initial automated or manual reply may include elements
+        such as: brand name ({publicBusinessInfo.legalName}), that message frequency varies, that message and data
+        rates may apply, how to opt out (<strong>STOP</strong>), how to get help (<strong>HELP</strong> or our contact
+        information), and links or short references to our Terms and Privacy Policy. Exact wording may vary slightly
+        as long as these points remain clear.
       </p>
+
+      <h3>3.6 Carriers and delivery partners</h3>
       <p>
-        <strong>Rates:</strong> Message and data rates may apply. Check your carrier plan.
-      </p>
-      <p>
-        <strong>Opt-out:</strong> Reply <strong>STOP</strong> at any time to cancel SMS from this program/number. We
-        will process your opt-out request as required by applicable rules (subject to limited exceptions for legally
-        required or security messages, if any).
-      </p>
-      <p>
-        <strong>Help:</strong> Reply <strong>HELP</strong> for assistance, or contact us using the information in the
-        “Contact us” section below.
+        SMS may be delivered through telecommunications carriers and messaging platforms (such as Twilio).{" "}
+        <strong>Carriers are not liable</strong> for delayed or undelivered messages. Delivery depends on your device,
+        carrier coverage, and network conditions.
       </p>
 
       <h2>4. Disclosures to third parties</h2>

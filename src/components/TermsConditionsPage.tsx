@@ -1,15 +1,18 @@
 import { Link } from "react-router-dom";
 import LegalDocumentLayout from "./LegalDocumentLayout";
 import MailingAddressBlock from "./MailingAddressBlock";
-import { publicBusinessInfo } from "../config/publicBusinessInfo";
+import { publicBusinessInfo, publicSiteUrl } from "../config/publicBusinessInfo";
 
 export default function TermsConditionsPage() {
   const { email, phoneDisplay, phoneE164, messagingNumberDisplay, messagingNumberE164 } = publicBusinessInfo;
+  const site = publicSiteUrl();
+  const privacyUrl = `${site}/privacy-policy`;
+  const termsUrl = `${site}/terms-and-conditions`;
 
   return (
     <LegalDocumentLayout
       title="Terms & Conditions"
-      effectiveLabel="Effective date: March 24, 2026 · Last updated: March 24, 2026 · These Terms also serve as our Terms of Service where that label is required by carriers or platforms."
+      effectiveLabel="Effective date: April 8, 2026 · Last updated: April 8, 2026 · These Terms also serve as our Terms of Service where that label is required by carriers or platforms (including A2P 10DLC)."
     >
       <p>
         These Terms &amp; Conditions (“Terms”) govern your access to and use of the public website operated by{" "}
@@ -18,6 +21,13 @@ export default function TermsConditionsPage() {
         agree to these Terms and our <Link to="/privacy-policy">Privacy Policy</Link>. If you do not agree, do not use
         this site or our messaging channels.
       </p>
+
+      <div className="lp__callout">
+        <strong>Public verification (A2P 10DLC):</strong> These Terms are published at{" "}
+        <a href={termsUrl}>{termsUrl}</a>. Our Privacy Policy is at <a href={privacyUrl}>{privacyUrl}</a>. Together they
+        document how users opt in to SMS, message frequency, rates, opt-out and help, and program scope for carrier
+        review.
+      </div>
 
       <h2>1. What TWIY does</h2>
       <p>
@@ -42,40 +52,68 @@ export default function TermsConditionsPage() {
 
       <h2>3. SMS program terms (A2P 10DLC)</h2>
       <p>
-        The following applies to SMS messages sent by TWIY in connection with requests you initiate with us. Our
-        published intake number for calls and texts is{" "}
-        <a href={`tel:${messagingNumberE164}`}>{messagingNumberDisplay}</a> /{" "}
-        <a href={`sms:${messagingNumberE164}`}>{messagingNumberDisplay}</a> (must match your registered campaign).
+        The following applies to SMS messages sent by <strong>{publicBusinessInfo.legalName}</strong> in connection
+        with inquiries or coordination <strong>you</strong> initiate. Our published intake number for calls and texts
+        is <a href={`tel:${messagingNumberE164}`}>{messagingNumberDisplay}</a> /{" "}
+        <a href={`sms:${messagingNumberE164}`}>{messagingNumberDisplay}</a> — it must match the number on your Twilio /
+        carrier registration.
       </p>
-      <h3>Consent</h3>
+
+      <h3>3.1 Message flow / call to action (summary for registration)</h3>
       <p>
-        You consent to receive transactional SMS from TWIY when you <strong>initiate contact</strong> with that number
-        (call or text). Sending a message — including a keyword such as “START” or any ordinary first message — means
-        you are asking us to respond and to use SMS for operational messages about that request.{" "}
+        You may paste the following into a “Message Flow” or “Call to Action” field if it matches your live operations:{" "}
+        <strong>{publicBusinessInfo.legalName}</strong> sends SMS only after you initiate contact.{" "}
+        <strong>Opt-in methods:</strong> (1) Text us at {messagingNumberDisplay} from your mobile phone — any first
+        message or a keyword such as START constitutes your request for us to respond by SMS about your inquiry. (2) Call{" "}
+        {messagingNumberDisplay}; if you agree during the call to receive text messages for scheduling or coordination,
+        that is your consent for SMS for that purpose. <strong>Message types:</strong> transactional/relationship messages
+        related to your request (for example confirmations, clarifications, scheduling). <strong>Frequency:</strong>{" "}
+        varies with your conversation; not a fixed recurring marketing schedule. <strong>Message and data rates may
+        apply.</strong> <strong>STOP</strong> to opt out. <strong>HELP</strong> for help. Terms: {termsUrl} Privacy:{" "}
+        {privacyUrl}.
+      </p>
+
+      <h3>3.2 Consent — detailed</h3>
+      <p>
+        You consent to receive SMS from us when you <strong>affirmatively initiate contact</strong> using the published
+        number: by texting (including “START” or any ordinary first message) or by calling and agreeing to SMS where
+        offered. Browsing the website alone does not enroll you.{" "}
         <strong>Consent is not a condition of purchase</strong> of any good or service where that distinction applies
         under applicable law.
       </p>
-      <h3>Use of mobile data</h3>
+
+      <h3>3.3 Use of mobile information</h3>
       <p>
-        <strong>Mobile opt-in information and consent records</strong> are not sold or shared with third parties for
-        their marketing. We use phone numbers and message content only to operate the program you joined by contacting
-        us, subject to our Privacy Policy and lawful disclosures.
+        <strong>Mobile opt-in and consent-related information</strong> are not sold or shared with third parties for
+        their marketing. We use phone numbers and message content to operate this program and our business, subject to
+        our <a href={privacyUrl}>Privacy Policy</a> and lawful disclosures.
       </p>
-      <h3>Message scope | No marketing blasts</h3>
+
+      <h3>3.4 Message scope | No unrelated marketing</h3>
       <p>
-        Messages are <strong>transactional and relationship</strong> in nature — for example intake confirmations,
-        clarifications, scheduling or coordination updates tied to your request. We do not run unrelated promotional SMS
-        campaigns to numbers obtained through this intake flow.
+        Messages are <strong>transactional and relationship</strong> in nature — for example intake acknowledgments,
+        clarifications, scheduling or coordination updates tied to your request. We do not send unrelated promotional SMS
+        blasts to numbers collected through this intake flow.
       </p>
-      <h3>Frequency, rates, carrier disclaimer</h3>
+
+      <h3>3.5 Frequency, rates, carrier disclaimer</h3>
       <p>
-        <strong>Message frequency varies</strong> with your interaction and the status of your request.{" "}
-        <strong>Message and data rates may apply.</strong> Carriers are not liable for delayed or undelivered messages.
+        <strong>Message frequency varies</strong> with your interaction and the status of your request; this is not a
+        recurring subscription marketing program with a fixed cadence. <strong>Message and data rates may apply.</strong>{" "}
+        <strong>Carriers are not liable</strong> for delayed or undelivered messages.
       </p>
-      <h3>Opt-out and help</h3>
+
+      <h3>3.6 Opt-out, help, and human support</h3>
       <p>
-        Reply <strong>STOP</strong> to cancel SMS. Reply <strong>HELP</strong> for help or use the contact information
-        below.
+        Reply <strong>STOP</strong> to cancel SMS from this number/program. Reply <strong>HELP</strong> for help. You
+        may also contact us using the information in Section 10 below. We will process opt-out and help requests as
+        required by applicable rules.
+      </p>
+
+      <h3>3.7 Alignment with message content</h3>
+      <p>
+        Your live message samples and autoresponders should remain consistent with this section — including brand name,
+        variable frequency, rates disclosure, STOP/HELP, and references to these Terms and the Privacy Policy.
       </p>
 
       <h2>4. Intellectual property</h2>

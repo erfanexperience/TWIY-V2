@@ -34,3 +34,9 @@ export function mailingAddressLines(): string[] {
 export function hasCompleteStreetAddress(): boolean {
   return Boolean(street && cityStateZip);
 }
+
+/** Canonical public site URL for legal/SMS disclosures (Twilio A2P reviewers). */
+export function publicSiteUrl(): string {
+  const raw = (import.meta.env.VITE_PUBLIC_SITE_URL as string | undefined)?.trim() || "https://twiyhealth.com";
+  return raw.replace(/\/$/, "");
+}
