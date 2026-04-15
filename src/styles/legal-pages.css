@@ -164,6 +164,46 @@
   color: rgba(11, 17, 24, 0.82);
 }
 
+/* Visually distinct SMS compliance box for A2P 10DLC carrier review */
+.lp__smsBox {
+  margin: 1.25rem 0 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background: #eef5fb;
+  border: 1px solid rgba(10, 77, 102, 0.2);
+  border-left: 4px solid #0a4d66;
+  border-radius: 2px;
+}
+
+.lp__smsBox h4 {
+  margin: 0 0 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #0a4d66;
+}
+
+.lp__smsBox ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.lp__smsBox li {
+  margin-bottom: 0.45rem;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: rgba(11, 17, 24, 0.84);
+}
+
+.lp__smsBox a {
+  color: #0a4d66;
+  font-weight: 600;
+}
+
+.lp__smsBox a:hover {
+  text-decoration: underline;
+}
+
 .lp__address {
   margin: 0.5rem 0 0;
   font-style: normal;

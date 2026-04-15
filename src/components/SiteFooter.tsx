@@ -65,6 +65,17 @@ export default function SiteFooter() {
               </li>
               <li className="sf__plainText">{addressOneLine}</li>
             </ul>
+            <p className="sf__smsDisclosure">
+              SMS: Text {publicBusinessInfo.messagingNumberDisplay} | Msg &amp; data rates may apply | Reply STOP to
+              cancel |{" "}
+              <Link className="sf__smsDisclosureLink" to="/privacy-policy">
+                Privacy Policy
+              </Link>{" "}
+              |{" "}
+              <Link className="sf__smsDisclosureLink" to="/terms-and-conditions">
+                Terms &amp; Conditions
+              </Link>
+            </p>
           </section>
         </div>
 

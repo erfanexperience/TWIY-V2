@@ -12,8 +12,8 @@ export default function PrivacyPolicyPage() {
   return (
     <LegalDocumentLayout title="Privacy Policy" effectiveLabel="Effective date: April 8, 2026 · Last updated: April 8, 2026">
       <p>
-        This Privacy Policy explains how <strong>{publicBusinessInfo.legalName}</strong> (“TWIY,” “we,” “us,” or
-        “our”) collects, uses, discloses, and safeguards information when you interact with our company — including
+        This Privacy Policy explains how <strong>{publicBusinessInfo.legalName}</strong> (&ldquo;TWIY,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or
+        &ldquo;our&rdquo;) collects, uses, discloses, and safeguards information when you interact with our company &mdash; including
         when you visit this website, request information, book a consultation, or contact us by phone or SMS. TWIY is
         a U.S.-based business focused on surgical distribution partnerships and related coordination; we describe our
         typical operations on our <Link to="/">homepage</Link> and <Link to="/about-us">About</Link> pages.
@@ -27,12 +27,12 @@ export default function PrivacyPolicyPage() {
       </div>
 
       <div className="lp__callout">
-        <strong>SMS program (A2P 10DLC — brand and program identification):</strong>{" "}
+        <strong>SMS program (A2P 10DLC &mdash; brand and program identification):</strong>{" "}
         <strong>{publicBusinessInfo.legalName}</strong> operates a <strong>business intake and coordination</strong>{" "}
         messaging program. Messages are sent only in connection with inquiries or coordination you start with us. The
         published number for calls and texts is{" "}
-        <a href={`sms:${messagingNumberE164}`}>{messagingNumberDisplay}</a> /{" "}
-        <a href={`tel:${messagingNumberE164}`}>{messagingNumberDisplay}</a> (this number must match your registered
+        <a href={"sms:" + messagingNumberE164}>{messagingNumberDisplay}</a> /{" "}
+        <a href={"tel:" + messagingNumberE164}>{messagingNumberDisplay}</a> (this number must match your registered
         campaign). We do not use this program for unrelated promotional or blast marketing.
       </div>
 
@@ -40,20 +40,20 @@ export default function PrivacyPolicyPage() {
       <p>Depending on how you choose to interact with us, we may collect:</p>
       <ul>
         <li>
-          <strong>Identifiers and contact details</strong> — such as your name, organization, work email, phone
+          <strong>Identifiers and contact details</strong> &mdash; such as your name, organization, work email, phone
           number, and similar information you submit through forms or messages.
         </li>
         <li>
-          <strong>Professional and operational details</strong> — information you share about territories, case support
+          <strong>Professional and operational details</strong> &mdash; information you share about territories, case support
           needs, scheduling, manufacturer partnerships, or other business topics relevant to distribution or intake
           coordination.
         </li>
         <li>
-          <strong>Communications content</strong> — the content of emails, SMS, phone notes (where permitted), and other
+          <strong>Communications content</strong> &mdash; the content of emails, SMS, phone notes (where permitted), and other
           messages you send us when you initiate contact or respond to our replies.
         </li>
         <li>
-          <strong>Technical data</strong> — basic device and log information commonly collected by websites (such as
+          <strong>Technical data</strong> &mdash; basic device and log information commonly collected by websites (such as
           browser type, general geographic region derived from IP address, and pages visited) to operate and secure our
           site.
         </li>
@@ -75,10 +75,54 @@ export default function PrivacyPolicyPage() {
       </p>
 
       <h2>3. SMS program: message flow, consent, and your choices</h2>
+
+      <div className="lp__smsBox">
+        <h4>SMS Program &mdash; A2P 10DLC Quick-Reference (Carrier &amp; Twilio Review)</h4>
+        <ul>
+          <li><strong>a) Brand / legal name:</strong> TWIY Health</li>
+          <li>
+            <strong>b) Program purpose:</strong> Transactional and relationship SMS tied to healthcare case intake
+            coordination; no marketing or promotional messages.
+          </li>
+          <li>
+            <strong>c) Published intake number:</strong>{" "}
+            <a href={"tel:" + messagingNumberE164}>{messagingNumberDisplay}</a> /{" "}
+            <a href={"sms:" + messagingNumberE164}>{messagingNumberDisplay}</a> (SMS)
+          </li>
+          <li>
+            <strong>d) Opt-in method #1 &mdash; Text-in:</strong> You consent by sending any text message (including START
+            or any natural first message) to{" "}
+            <a href={"sms:" + messagingNumberE164}>{messagingNumberDisplay}</a> from your mobile phone.
+          </li>
+          <li>
+            <strong>e) Opt-in method #2 &mdash; Call-in:</strong> You consent by calling{" "}
+            <a href={"tel:" + messagingNumberE164}>{messagingNumberDisplay}</a> and agreeing during the call to receive
+            SMS for scheduling or coordination.
+          </li>
+          <li><strong>f) Website browsing:</strong> Browsing this website alone does not enroll you in SMS.</li>
+          <li>
+            <strong>g) Message frequency:</strong> Varies based on your request; not a fixed recurring schedule.
+          </li>
+          <li><strong>h) Rates:</strong> Message and data rates may apply.</li>
+          <li><strong>i) Opt-out:</strong> Reply STOP at any time to cancel SMS from this number.</li>
+          <li>
+            <strong>j) Help:</strong> Reply HELP for assistance or contact us at{" "}
+            <a href={"mailto:" + email}>{email}</a>.
+          </li>
+          <li><strong>k) No purchase required:</strong> Consent is not a condition of purchasing any goods or services.</li>
+          <li><strong>l) Carrier disclaimer:</strong> Carriers are not liable for delayed or undelivered messages.</li>
+          <li>
+            <strong>m) Policies:</strong>{" "}
+            <a href={privacyUrl}>{privacyUrl}</a>{" | "}
+            <a href={termsUrl}>{termsUrl}</a>
+          </li>
+        </ul>
+      </div>
+
       <p>
         This section is written so carriers, Twilio, and other reviewers can verify our{" "}
         <strong>call to action</strong>, <strong>how users opt in</strong>, and <strong>required disclosures</strong>{" "}
-        for A2P 10DLC registration. You may copy language from this section into your “Message Flow / Call to Action”
+        for A2P 10DLC registration. You may copy language from this section into your &ldquo;Message Flow / Call to Action&rdquo;
         field if it accurately reflects your live process.
       </p>
 
@@ -86,10 +130,10 @@ export default function PrivacyPolicyPage() {
       <p>
         <strong>Brand / legal name:</strong> {publicBusinessInfo.legalName}. <strong>Program purpose:</strong>{" "}
         Transactional and relationship SMS tied to business intake, consultation coordination, and follow-up you request
-        with us — not mass marketing.
+        with us &mdash; not mass marketing.
       </p>
 
-      <h3>3.2 Public call to action — how you opt in (all methods we use)</h3>
+      <h3>3.2 Public call to action &mdash; how you opt in (all methods we use)</h3>
       <p>
         You are <strong>not</strong> enrolled in SMS by browsing this website alone. Consent is collected only through
         affirmative, user-initiated contact with our published number or channel, as follows:
@@ -97,13 +141,14 @@ export default function PrivacyPolicyPage() {
       <ul>
         <li>
           <strong>Text-in (mobile originated):</strong> You send a text message from your mobile phone to{" "}
-          <a href={`sms:${messagingNumberE164}`}>{messagingNumberDisplay}</a>. That includes any natural first message
+          <a href={"sms:" + messagingNumberE164}>{messagingNumberDisplay}</a>. That includes any natural first message
           (for example introducing yourself or your request) or a keyword such as <strong>START</strong> if you choose to
           use one. Sending that message means you are asking {publicBusinessInfo.legalName} to reply by SMS about your
           inquiry.
         </li>
         <li>
-          <strong>Call-in:</strong> You call <a href={`tel:${messagingNumberE164}`}>{messagingNumberDisplay}</a>. If,
+          <strong>Call-in:</strong> You call{" "}
+          <a href={"tel:" + messagingNumberE164}>{messagingNumberDisplay}</a>. If,
           during the call, you agree to receive SMS (for example to confirm details, schedule, or continue the
           conversation by text), that agreement is your consent for SMS for that coordination thread.
         </li>
@@ -143,7 +188,7 @@ export default function PrivacyPolicyPage() {
           required or security-related messages, if any).
         </li>
         <li>
-          <strong>Help:</strong> Reply <strong>HELP</strong> for assistance, or contact us using the “Contact us”
+          <strong>Help:</strong> Reply <strong>HELP</strong> for assistance, or contact us using the &ldquo;Contact us&rdquo;
           section below.
         </li>
         <li>
@@ -178,15 +223,15 @@ export default function PrivacyPolicyPage() {
       <p>We may disclose information to:</p>
       <ul>
         <li>
-          <strong>Service providers</strong> — such as hosting, communications (including telephony/SMS carriers and
+          <strong>Service providers</strong> &mdash; such as hosting, communications (including telephony/SMS carriers and
           platforms like Twilio), email, analytics, and CRM tools that process data under contract for us.
         </li>
         <li>
-          <strong>Legal and safety</strong> — when we believe disclosure is required by law or necessary to protect
+          <strong>Legal and safety</strong> &mdash; when we believe disclosure is required by law or necessary to protect
           rights, safety, or security.
         </li>
         <li>
-          <strong>Business transfers</strong> — in connection with a merger, acquisition, or asset sale, subject to
+          <strong>Business transfers</strong> &mdash; in connection with a merger, acquisition, or asset sale, subject to
           appropriate safeguards.
         </li>
       </ul>
@@ -205,7 +250,7 @@ export default function PrivacyPolicyPage() {
         below. We will respond in line with applicable law.
       </p>
 
-      <h2>7. Children’s privacy</h2>
+      <h2>7. Children&apos;s privacy</h2>
       <p>
         Our services are directed to business professionals and are not intended for children under 13. We do not
         knowingly collect personal information from children.
@@ -213,7 +258,7 @@ export default function PrivacyPolicyPage() {
 
       <h2>8. Changes to this Policy</h2>
       <p>
-        We may update this Privacy Policy from time to time. The “Last updated” date at the top will change when we do.
+        We may update this Privacy Policy from time to time. The &ldquo;Last updated&rdquo; date at the top will change when we do.
         Where required, we will provide additional notice. Continued use of our website or SMS program after updates
         means you acknowledge the revised Policy.
       </p>
@@ -225,15 +270,15 @@ export default function PrivacyPolicyPage() {
       <ul>
         <li>
           <strong>Email:</strong>{" "}
-          <a href={`mailto:${email}`}>{email}</a>
+          <a href={"mailto:" + email}>{email}</a>
         </li>
         <li>
           <strong>Phone:</strong>{" "}
-          <a href={`tel:${phoneE164}`}>{phoneDisplay}</a>
+          <a href={"tel:" + phoneE164}>{phoneDisplay}</a>
         </li>
         <li>
           <strong>Intake / SMS line (published on this site):</strong>{" "}
-          <a href={`tel:${messagingNumberE164}`}>{messagingNumberDisplay}</a>
+          <a href={"tel:" + messagingNumberE164}>{messagingNumberDisplay}</a>
         </li>
       </ul>
       <p>

@@ -113,6 +113,23 @@
   gap: 1rem;
 }
 
+.sf__smsDisclosure {
+  margin: 0.65rem 0 0;
+  font-size: 0.69rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.36);
+}
+
+.sf__smsDisclosureLink {
+  color: rgba(255, 255, 255, 0.46);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.sf__smsDisclosureLink:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
 @media (min-width: 768px) {
   .sf__top {
     grid-template-columns: 1.3fr 1fr 1fr;

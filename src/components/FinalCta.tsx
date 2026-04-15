@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { publicBusinessInfo } from "../config/publicBusinessInfo";
 import "../styles/final-cta.css";
 
 export default function FinalCta() {
@@ -15,6 +16,19 @@ export default function FinalCta() {
         <Link className="fcta__button" to="/consultation-booking">
           Schedule a Strategic Consultation
         </Link>
+
+        <div className="fcta__contact">
+          <a href={`tel:${publicBusinessInfo.phoneE164}`} className="fcta__phone">
+            {publicBusinessInfo.phoneDisplay}
+          </a>
+          <p className="fcta__smsDisclosure">
+            By texting or calling this number, you consent to receive transactional SMS messages from TWIY Health
+            related to your intake request. Message frequency varies. Message and data rates may apply. Reply STOP to
+            cancel, HELP for help. Consent is not a condition of any purchase.{" "}
+            <Link to="/privacy-policy">Privacy Policy</Link>{" | "}
+            <Link to="/terms-and-conditions">Terms &amp; Conditions</Link>
+          </p>
+        </div>
       </div>
     </section>
   );

@@ -70,6 +70,46 @@
   transform: translateY(0);
 }
 
+.fcta__contact {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.fcta__phone {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: opacity 0.2s ease;
+}
+
+.fcta__phone:hover {
+  opacity: 0.82;
+  text-decoration: underline;
+}
+
+.fcta__smsDisclosure {
+  max-width: 64ch;
+  font-size: 0.7rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: center;
+  margin: 0;
+}
+
+.fcta__smsDisclosure a {
+  color: rgba(255, 255, 255, 0.58);
+  text-decoration: underline;
+}
+
+.fcta__smsDisclosure a:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
 @media (max-width: 767.98px) {
   .fcta {
     --fcta-gutter: 20px;
