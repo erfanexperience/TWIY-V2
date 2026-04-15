@@ -66,15 +66,12 @@ export default function SiteFooter() {
               <li className="sf__plainText">{addressOneLine}</li>
             </ul>
             <p className="sf__smsDisclosure">
-              SMS: Text {publicBusinessInfo.messagingNumberDisplay} | Msg &amp; data rates may apply | Reply STOP to
-              cancel |{" "}
-              <Link className="sf__smsDisclosureLink" to="/privacy-policy">
-                Privacy Policy
-              </Link>{" "}
-              |{" "}
-              <Link className="sf__smsDisclosureLink" to="/terms-and-conditions">
-                Terms &amp; Conditions
-              </Link>
+              By texting or calling {publicBusinessInfo.messagingNumberDisplay}, you consent to receive transactional
+              SMS from TWIY Health related to your intake request. Msg frequency varies. Msg &amp; data rates may
+              apply. Reply STOP to cancel, HELP for help. Consent is not required for any purchase.{" "}
+              <Link className="sf__smsDisclosureLink" to="/privacy-policy">Privacy Policy</Link>
+              {" | "}
+              <Link className="sf__smsDisclosureLink" to="/terms-and-conditions">Terms &amp; Conditions</Link>
             </p>
           </section>
         </div>

@@ -10,7 +10,7 @@ export default function PrivacyPolicyPage() {
   const termsUrl = `${site}/terms-and-conditions`;
 
   return (
-    <LegalDocumentLayout title="Privacy Policy" effectiveLabel="Effective date: April 8, 2026 · Last updated: April 8, 2026">
+    <LegalDocumentLayout title="Privacy Policy" effectiveLabel="Effective date: April 8, 2026 · Last updated: April 15, 2026">
       <p>
         This Privacy Policy explains how <strong>{publicBusinessInfo.legalName}</strong> (&ldquo;TWIY,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or
         &ldquo;our&rdquo;) collects, uses, discloses, and safeguards information when you interact with our company &mdash; including
@@ -77,7 +77,7 @@ export default function PrivacyPolicyPage() {
       <h2>3. SMS program: message flow, consent, and your choices</h2>
 
       <div className="lp__smsBox">
-        <h4>SMS Program &mdash; A2P 10DLC Quick-Reference (Carrier &amp; Twilio Review)</h4>
+        <h4>SMS Program (A2P 10DLC)</h4>
         <ul>
           <li><strong>a) Brand / legal name:</strong> TWIY Health</li>
           <li>

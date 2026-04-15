@@ -115,9 +115,10 @@
 
 .sf__smsDisclosure {
   margin: 0.65rem 0 0;
-  font-size: 0.69rem;
+  font-size: 11px;
   line-height: 1.55;
-  color: rgba(255, 255, 255, 0.36);
+  color: gray;
+  max-width: 320px;
 }
 
 .sf__smsDisclosureLink {

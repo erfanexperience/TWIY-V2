@@ -12,7 +12,7 @@ export default function TermsConditionsPage() {
   return (
     <LegalDocumentLayout
       title="Terms &amp; Conditions"
-      effectiveLabel="Effective date: April 8, 2026 · Last updated: April 8, 2026 · These Terms also serve as our Terms of Service where that label is required by carriers or platforms (including A2P 10DLC)."
+      effectiveLabel="Effective date: April 8, 2026 · Last updated: April 15, 2026 · These Terms also serve as our Terms of Service where that label is required by carriers or platforms (including A2P 10DLC)."
     >
       <p>
         These Terms &amp; Conditions (&ldquo;Terms&rdquo;) govern your access to and use of the public website operated by{" "}
